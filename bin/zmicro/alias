@@ -1,0 +1,33 @@
+#!/bin/bash
+
+help() {
+  echo "Usage:"
+  echo "  zmicro act <args ...>"
+  echo ""
+
+  act --help
+}
+
+version() {
+  act --version
+}
+
+core() {
+  case $1 in
+  -h | --help | help)
+    help
+    ;;
+  -v | --version | version)
+    version
+    ;;
+  *)
+    act "$@"
+    ;;
+  esac
+}
+
+run() {
+  core "$@"
+}
+
+run "$@"
